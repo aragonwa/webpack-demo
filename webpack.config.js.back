@@ -1,0 +1,55 @@
+var path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+  // look for utils and app in js dir
+  context: path.resolve('js'),
+  // List of files that are entry points
+  // entry: ["./utils", "./app"],
+  entry: {
+    about: './about_page.js',
+    home: './home_page.js',
+    contact: './contact_page.js'
+  },
+  output: {
+    // build files in build/js
+    path: path.resolve('build/js/'),
+    // Where to serve file on web server
+    // Matches index.html
+    // WHen request for /public/assets/js/ comes in it looks in build/js
+    publicPath: '/public/assets/js/',
+    // filename: "bundle.js"
+    // matches the entry name above
+    filename: '[name].js'
+  },
+
+  // any request for the root go to public folder eg. index.html
+  devServer: {
+    contentBase: 'public'
+  },
+
+  module: {
+    // // Runs before loaders
+    // preloaders:[
+    //   {
+    //     test: /\.js$/,
+    //     exclude: 'node_modules',
+    //     loader: 'jshint-loader'
+    //   }
+    // ],
+    loaders: [
+      {
+        test: /\.es6$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({name: 'shared', filename: 'shared.js'})
+  ],
+  // Allows you import files/modules without ext
+  resolve: {
+    extensions: ['.js', '.es6']
+  }
+};

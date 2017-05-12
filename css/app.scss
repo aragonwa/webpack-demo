@@ -1,0 +1,27 @@
+body {
+  padding-top: 80px;
+}
+
+.navbar {
+  background-image: linear-gradient(to bottom, #007c0c 0, #000C0C 100%);
+}
+
+h1 {
+  padding: 15px;
+  border: {
+    color: red;
+    style: solid;
+    width:1px;
+  }
+   background: linear-gradient(to top, #000000, white);
+   display: flex;
+   transition: transform 1s;
+   border-radius: 5px;
+}
+
+.bg_header_img {
+  background: url('../images/cat.jpg') -131px 1px no-repeat;
+  margin-right: 15px;
+  height: 150px;
+  width: 150px;
+}

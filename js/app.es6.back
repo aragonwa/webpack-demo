@@ -1,0 +1,9 @@
+// require('./login');
+// Use ES6 syntax
+import {login} from './login';
+
+login('admin', 'radical');
+
+document.write("Welcome homedd!");
+
+console.log("App loaded");
